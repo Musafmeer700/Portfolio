@@ -84,8 +84,8 @@ const HeroSection = ({ darkMode }) => {
                     <div className='lg:w-1/2 mt-16 lg:mt-0 flex justify-center relative' data-aos='fade-left' data-aos-delay='400'>
                         <div className='relative group'>
                             {/* Animated ring around image */}
-                            <div className='absolute -inset-1 bg-linear-to-r from-orange-500 to-amber-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 animate-tilt'></div>
-                            
+                            {!darkMode && (<div className='absolute -inset-1 bg-linear-to-r from-orange-500 to-amber-500 rounded-full blur opacity-25 group-hover:opacity-30 transition duration-1000 group-hover:duration-200 animate-tilt'></div>
+                            )}
                             <div className='relative bg-transparent rounded-3xl p-2'>
                                 <img src={hero1} alt="Musaf Iftikhar" 
                                      className='w-64 h-64 sm:w-80 sm:h-80 lg:w-100 lg:h-100 object-cover rounded-3xl transition-transform duration-700 group-hover:scale-[1.02]' />
