@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"
 import Navbar from "./components/Navbar"
 import HeroSection from './components/HeroSection';
+import About from './components/About';
 
 const App = () => {
 
@@ -36,6 +37,7 @@ const App = () => {
     }>
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode}  />
       <HeroSection darkMode={darkMode} />
+      <About darkMode={darkMode} />
     </div>
   )
 }
