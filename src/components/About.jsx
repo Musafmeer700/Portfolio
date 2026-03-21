@@ -28,7 +28,7 @@ const About = ({ darkMode }) => {
             {/* <div className="absolute inset-0 bg-gradient-to-tr from-orange-500 to-amber-400 rounded-[2rem] rotate-6 scale-105 opacity-20 animate-pulse" /> */}
             
             {/* Image Container with Border */}
-            <div className="relative h-full w-full rounded-4xl overflow-hidden border-2 border-orange-500/20 shadow-2xl transition-transform duration-500 hover:rotate-3">
+            <div className="relative h-full w-full rounded-4xl overflow-hidden  transition-transform duration-500 hover:rotate-3">
               <img
                 src={about}
                 alt="About Musaf"
@@ -51,7 +51,7 @@ const About = ({ darkMode }) => {
         {/* Right: Content Section */}
         <article className="lg:pl-8 order-1 lg:order-2">
           <header data-aos="fade-up">
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wider text-orange-500 uppercase bg-orange-500/10 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wide text-orange-500 uppercase bg-orange-500/10 rounded-full">
               Who I Am
             </span>
             <h2 className={`text-4xl lg:text-6xl font-extrabold mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
