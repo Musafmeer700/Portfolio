@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar"
 import HeroSection from './components/HeroSection';
 import About from './components/About';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 
 const App = () => {
 
@@ -40,6 +41,7 @@ const App = () => {
       <HeroSection darkMode={darkMode} />
       <About darkMode={darkMode} />
       <Skills darkMode={darkMode} />
+      <Projects darkMode={darkMode} />
     </div>
   )
 }
