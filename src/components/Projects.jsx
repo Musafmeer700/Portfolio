@@ -56,7 +56,6 @@ const Projects = ({ darkMode }) => {
 
   return (
     <section id="projects" className="relative py-24 lg:px-24 md:px-10 px-4 overflow-hidden">
-      {/* Background Flare */}
 
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16" data-aos="fade-up">
