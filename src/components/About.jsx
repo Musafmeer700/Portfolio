@@ -40,7 +40,7 @@ const About = ({ darkMode }) => {
             <div 
               data-aos="zoom-in" 
               data-aos-delay="800"
-              className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl border border-orange-500/20 backdrop-blur-md"
+              className="cursor-pointer absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl border border-orange-500/20 backdrop-blur-md"
             >
               <p className="text-orange-500 font-bold text-2xl leading-none">100%</p>
               <p className={`text-xs font-medium ${darkMode ? "text-gray-400" : "text-gray-600"}`}>Dedication</p>
@@ -82,7 +82,7 @@ const About = ({ darkMode }) => {
                   darkMode 
                     ? "bg-white/5 border-white/10 hover:bg-white/10" 
                     : "bg-gray-100 border-gray-200 hover:bg-gray-200"
-                } transition-colors duration-300`}
+                } transition-colors duration-300 cursor-pointer`}
               >
                 <div className="text-xl sm:text-2xl font-bold text-orange-500 mb-1">
                   {stat.value}

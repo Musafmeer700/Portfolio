@@ -55,9 +55,8 @@ const Projects = ({ darkMode }) => {
   const cardBg = darkMode ? "linear-gradient(to bottom right, #1a1a1a, #111111)" : "linear-gradient(to bottom right, #ffffff, #faf9fb)";
 
   return (
-    <section id="projects" className="relative py-24 px-32 overflow-hidden">
+    <section id="projects" className="relative py-24 lg:px-24 md:px-10 px-4 overflow-hidden">
       {/* Background Flare */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-orange-500/5 blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <header className="text-center mb-16" data-aos="fade-up">
@@ -74,7 +73,7 @@ const Projects = ({ darkMode }) => {
           </p>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
           {projects.map((project, index) => (
             <div
               key={project.id}
