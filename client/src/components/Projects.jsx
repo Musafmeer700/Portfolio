@@ -14,6 +14,8 @@ const Projects = ({ darkMode }) => {
       desc: "A full-stack shopping experience with real-time cart logic and secure checkout.",
       image: project1,
       tags: ["React", "Node.js", "MongoDB"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
     {
       id: 2,
@@ -21,6 +23,8 @@ const Projects = ({ darkMode }) => {
       desc: "Personalized health tracking with real-time data visualization and cloud sync.",
       image: project2,
       tags: ["React Native", "Firebase"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
     {
       id: 3,
@@ -28,6 +32,8 @@ const Projects = ({ darkMode }) => {
       desc: "AI-powered tool for generating high-quality marketing copy and blog posts.",
       image: project3,
       tags: ["Python", "OpenAI"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
     {
       id: 4,
@@ -35,6 +41,8 @@ const Projects = ({ darkMode }) => {
       desc: "Interactive analytics dashboard with complex data filtering and reporting.",
       image: project4,
       tags: ["Vue.js", "Chart.js"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
     {
       id: 5,
@@ -42,13 +50,17 @@ const Projects = ({ darkMode }) => {
       desc: "Collaborative project management tool with Kanban boards and deadline tracking.",
       image: project5,
       tags: ["Laravel", "Vue.js"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
     {
       id: 6,
-      title: "Skill Swap",
-      desc: "A collaborative platform for developers to trade skills and build projects together.",
+      title: "FreshShop.",
+      desc: "FreshShop is a minimalist e-commerce platform built for grocery shopping.",
       image: project6,
-      tags: ["Next.js", "Three.js", "MongoDB"],
+      tags: ["React.js", "Tailwind Css"],
+      demo: 'https://freshshop-ecommerce.vercel.app/',
+      code: 'https://github.com/Musafmeer700/freshshop-ecommerce'
     },
   ];
 
@@ -119,7 +131,8 @@ const Projects = ({ darkMode }) => {
                 {/* Buttons */}
                 <div className="flex gap-4">
                   <a
-                    href="#"
+                    href={project.code}
+                    target="_blank"
                     style={{
                       backgroundColor: darkMode ? "#262626" : "#f3f4f6",
                       color: darkMode ? "white" : "#374151",
@@ -131,7 +144,8 @@ const Projects = ({ darkMode }) => {
                   </a>
 
                   <a
-                    href="#"
+                    href={project.demo}
+                    target="_blank"
                     style={{ background: "linear-gradient(to right, #f97316, #f59e0b)" }}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-sm font-bold text-white rounded-xl hover:shadow-lg hover:shadow-orange-500/40 transition-all duration-300"
                   >
@@ -147,7 +161,7 @@ const Projects = ({ darkMode }) => {
         {/* View All Button */}
         <div className="text-center">
           <a
-            href="https://github.com"
+            href="https://github.com/Musafmeer700"
             target="_blank"
             rel="noopener noreferrer"
             style={{ background: "linear-gradient(to right, #f97316, #f59e0b)" }}
