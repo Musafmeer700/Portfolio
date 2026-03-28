@@ -43,7 +43,7 @@ const Footer = ({ darkMode }) => {
           <div className="flex gap-4">
             {[
               { Icon: FaGithub, href: "https://github.com/Musafmeer700" },
-              { Icon: FaLinkedin, href: "www.linkedin.com/in/musaf-iftikhar-034791240" },
+              { Icon: FaLinkedin, href: "https://www.linkedin.com/in/musaf-iftikhar-034791240" },
               { Icon: FaTwitter, href: "https://twitter.com" },
             ].map((social, index) => (
               <a
