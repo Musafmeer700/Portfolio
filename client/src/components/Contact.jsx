@@ -1,6 +1,51 @@
+import { useState } from "react";
 import contact from "../assets/contact.png";
 
 const Contact = ({ darkMode }) => {
+
+  const [firstname, setFirstName] = useState(''); 
+  const [lastName, setLastName] = useState(''); 
+  const [email, setEmail] = useState(''); 
+  const [phoneNumber, setPhoneNumber] = useState(''); 
+  const [message, setMessage] = useState(''); 
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formdata = {
+    firstName: firstname,
+    lastName: lastName,
+    emailAddress: email,
+    phoneNumber: phoneNumber,
+    message: message
+  };
+
+  try {
+    const res = await fetch('http://localhost:3000/api/contact', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formdata),
+    });
+
+    const data = await res.json(); // 👈 missing await
+
+    if (data.success) {
+      alert("Message sent successfully!");
+    }
+  } catch (error) {
+    alert("Something went wrong");
+  }
+
+  // reset
+  setFirstName("");
+  setLastName("");
+  setEmail("");
+  setPhoneNumber("");
+  setMessage("");
+};
+
   // Theme-based constants
   const cardBg = darkMode 
     ? "linear-gradient(to bottom right, #1a1a1a, #111111)" 
@@ -52,7 +97,7 @@ const Contact = ({ darkMode }) => {
           </div>
 
           {/* Right: Refined Form */}
-          <form
+          <form onSubmit={handleSubmit}
             style={{ 
               background: cardBg, 
               borderColor: darkMode ? "rgba(255,255,255,0.1)" : "#e5e7eb" 
@@ -66,6 +111,8 @@ const Contact = ({ darkMode }) => {
                 <input
                   type="text"
                   placeholder="John"
+                  value={firstname}
+                  onChange={(e) => setFirstName(e.target.value)}
                   style={{ backgroundColor: inputBg, color: textColor }}
                   className="w-full px-5 py-4 rounded-2xl border border-transparent focus:border-orange-500/50 outline-none transition-all shadow-inner"
                   required
@@ -76,6 +123,8 @@ const Contact = ({ darkMode }) => {
                 <input
                   type="text"
                   placeholder="Doe"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   style={{ backgroundColor: inputBg, color: textColor }}
                   className="w-full px-5 py-4 rounded-2xl border border-transparent focus:border-orange-500/50 outline-none transition-all shadow-inner"
                   required
@@ -88,6 +137,8 @@ const Contact = ({ darkMode }) => {
               <input
                 type="email"
                 placeholder="john@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 style={{ backgroundColor: inputBg, color: textColor }}
                 className="w-full px-5 py-4 rounded-2xl border border-transparent focus:border-orange-500/50 outline-none transition-all shadow-inner"
                 required
@@ -99,6 +150,8 @@ const Contact = ({ darkMode }) => {
               <input
                 type="tel"
                 placeholder="+1 (555) 000-0000"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 style={{ backgroundColor: inputBg, color: textColor }}
                 className="w-full px-5 py-4 rounded-2xl border border-transparent focus:border-orange-500/50 outline-none transition-all shadow-inner"
                 required
@@ -110,6 +163,8 @@ const Contact = ({ darkMode }) => {
               <textarea
                 rows="4"
                 placeholder="Tell me about your project..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 style={{ backgroundColor: inputBg, color: textColor }}
                 className="w-full px-5 py-4 rounded-2xl border border-transparent focus:border-orange-500/50 outline-none transition-all shadow-inner resize-none"
                 required
