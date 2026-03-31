@@ -8,7 +8,9 @@ const app = express();
 dotenv.config();
 
 //middlewares
-app.use(cors());
+app.use(cors({
+    origin: "https://portfolio-frontend-six-psi.vercel.app/"
+}));
 app.use(express.json());
 
 app.use("/api", contactUser);
