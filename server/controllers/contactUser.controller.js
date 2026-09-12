@@ -1,13 +1,16 @@
-import nodemailer from 'nodemailer'
+import nodemailer from "nodemailer";
 
-export const contactUser = async (req, res) =>  {
-    const {firstName, lastName, emailAddress, phoneNumber, message} = req.body
+export const contactUser = async (req, res) => {
+    const { firstName, lastName, emailAddress, phoneNumber, message } =
+        req.body;
 
     console.log(req.body);
 
     try {
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 587,
+            secure: false,
             auth: {
                 user: process.env.EMAIL,
                 pass: process.env.PASSWORD,
@@ -18,26 +21,27 @@ export const contactUser = async (req, res) =>  {
             from: process.env.EMAIL,
             replyTo: emailAddress,
             to: process.env.EMAIL,
-            subject: "New Portfolio Message ",
-            html: 
-                `<h3>New message</h3>
-                <p><b>Name: </b> ${firstName} ${lastName}</p>
-                <p><b>Email: </b> ${emailAddress}</p>
-                <p><b>Phone Number: </b> ${phoneNumber}</p>
-                <p><b>Message: </b> ${message}</p>
-                `,
+            subject: "New Portfolio Message",
+            html: `
+                <h3>New message</h3>
+                <p><b>Name:</b> ${firstName} ${lastName}</p>
+                <p><b>Email:</b> ${emailAddress}</p>
+                <p><b>Phone Number:</b> ${phoneNumber}</p>
+                <p><b>Message:</b> ${message}</p>
+            `,
         });
 
-        res.status(200).json({success: true,  message: "Message sent!"});
+        res.status(200).json({
+            success: true,
+            message: "Message sent!",
+        });
     } catch (error) {
-  console.log("❌ ERROR DETAILS:");
-  console.log(error);            // full error
-  console.log(error.message);    // message
-  console.log(error.stack);      // stack trace
+        console.log("❌ ERROR DETAILS:");
+        console.log(error);
 
-  res.status(500).json({
-    success: false,
-    message: error.message, // 👈 send real error to frontend
-  });
-}
-}
+        res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+};
