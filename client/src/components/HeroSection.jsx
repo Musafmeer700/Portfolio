@@ -1,18 +1,16 @@
 import { Download, Mail } from 'lucide-react';
 import instagram from '../assets/instagram.png';
-import tiktok from '../assets/tiktok.png';
+import linkedin1 from '../assets/linkedin1.png';
 import github from '../assets/github.png';
-import youtube from '../assets/youtube.png';
 import hero1 from '../assets/hero1.png';
 import hi from '../assets/hi.png';
 import CV from '../assets/CV.pdf';
 
 const HeroSection = ({ darkMode }) => {
     const socialIcons = [
-        { icon: instagram, alt: 'Instagram', link: '#' },
-        { icon: tiktok, alt: 'tiktok', link: '#' },
-        { icon: github, alt: 'github', link: '#' },
-        { icon: youtube, alt: 'youtube', link: '#' },
+        { icon: instagram, alt: 'Instagram', link: 'https://www.instagram.com/musafmeer7'},
+        { icon: github, alt: 'github', link: 'https://github.com/Musafmeer700',},
+        { icon: linkedin1, alt: 'linkedin', link: 'https://www.linkedin.com/in/musafmeer70'},
     ];
 
     const theme = {
@@ -35,7 +33,7 @@ const HeroSection = ({ darkMode }) => {
                     <div className='lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left'>
                         
                         {/* Social Icons */}
-                        <div className='flex justify-center lg:justify-start gap-5 mb-8'>
+                        <div className='flex justify-center lg:justify-start gap-5 mb-8 '>
                             {socialIcons.map((social, idx) => (
                                 <a key={idx}
                                    href={social.link}
@@ -43,10 +41,10 @@ const HeroSection = ({ darkMode }) => {
                                    rel="noreferrer"
                                    data-aos="zoom-in"
                                    data-aos-delay={`${400 + idx * 100}`}
-                                   className='group relative p-2 rounded-xl transition-all duration-300 hover:bg-orange-500/10'
+                                   className='group  relative p-2 rounded-xl transition-all duration-300 hover:bg-orange-500/10'
                                 >
                                     <img src={social.icon} alt={social.alt} 
-                                         className={`w-7 h-7 sm:w-8 sm:h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(249,115,22,0.5)] ${!darkMode && 'grayscale hover:grayscale-0'}`} />
+                                         className={`w-7 h-7 ${social.scale ? `scale-${social.scale}` : ''} sm:w-8 sm:h-8 object-contain transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(249,115,22,0.5)] ${!darkMode && 'grayscale hover:grayscale-0'}`} />
                                 </a>
                             ))}
                         </div>
@@ -59,7 +57,7 @@ const HeroSection = ({ darkMode }) => {
 
                         <p className={`text-lg sm:text-xl leading-relaxed max-w-lg mb-10 font-medium ${theme.textSecondary}`}
                            data-aos='fade-up' data-aos-delay='600'>
-                            Full-Stack Developer specializing in the MERN stack. I build scalable web applications with clean code and exceptional user experiences.
+                            MERN Stack Developer with experience across frontend and backend — I've built everything from consultancy platforms to immersive VR learning tools, and shipped features for real client products in production.
                         </p>
 
                         {/* Buttons */}

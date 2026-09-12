@@ -1,22 +1,22 @@
-import laravel from '../assets/laravel.png'
 import framer_motion from '../assets/framer_motion.png'
-import vue from '../assets/vue.png'
 import react from '../assets/react.png'
 import tailwind from '../assets/tailwind.png'
-import firebase from '../assets/firebase.png'
-import python from '../assets/python.png'
 import vite from '../assets/vite.png'
+import node from '../assets/node.png'
+import mongodb from '../assets/mongodb.png'
+import express from '../assets/express.png'
+import Nextjs from '../assets/Nextjs.png'
 
 const Skills = ({ darkMode }) => {
   const skills = [
-    { name: "laravel", icon: laravel, level: 95, color: "from-orange-500 to-amber-500 " },
-    { name: "framer motion", icon: framer_motion, level: 90, color: "from-blue-500 to-cyan-500 " },
-    { name: "vue", icon: vue, level: 88, color: "from-yellow-500 to-amber-500 " },
     { name: "React", icon: react, level: 85, color: "from-cyan-500 to-blue-500 " },
+    { name: "Vite", icon: vite, level: 85, color: "from-red-500 to-orange-500 " },
     { name: "Tailwind CSS", icon: tailwind, level: 92, color: "from-teal-500 to-cyan-500 " },
-    { name: "Firebase", icon: firebase, level: 92, color: "from-green-500 to-emerald-500 " },
-    { name: "python", icon: python, level: 75, color: "from-blue-500 to-indigo-500 " },
-    { name: "vite", icon: vite, level: 85, color: "from-red-500 to-orange-500 " },
+    { name: "framer motion", icon: framer_motion, level: 90, color: "from-blue-500 to-cyan-500 " },
+    { name: "Node.js", icon: node, level: 95, color: "from-green-500 to-amber-500 " },
+    { name: "MongoDB", icon: mongodb, level: 88, color: "from-yellow-500 to-green-500 " },
+    { name: "Express.js", icon: express, level: 92, color: "from-green-500 to-emerald-500 " },
+    { name: "Next.js", icon: Nextjs, level: 75, color: "from-indigo-500 to-purple-500 " },
   ];
 
   return (
