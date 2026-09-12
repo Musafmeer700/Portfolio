@@ -8,43 +8,64 @@ const Contact = ({ darkMode }) => {
   const [email, setEmail] = useState(''); 
   const [phoneNumber, setPhoneNumber] = useState(''); 
   const [message, setMessage] = useState(''); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formdata = {
-    firstName: firstname,
-    lastName: lastName,
-    emailAddress: email,
-    phoneNumber: phoneNumber,
-    message: message
-  };
+    if (isSubmitting) return;
 
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formdata),
-    });
+    const formdata = {
+      firstName: firstname,
+      lastName: lastName,
+      emailAddress: email,
+      phoneNumber: phoneNumber,
+      message: message
+    };
 
-    const data = await res.json();
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
 
-    if (data.success) {
-      alert("Message sent successfully!");
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formdata),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.success) {
+        const validationMessage = data.errors?.map((error) => error.message).join(' ');
+        const messageByStatus = {
+          400: validationMessage || 'Please check your information and try again.',
+          429: 'You have sent too many messages. Please try again later.',
+          500: 'The message could not be sent right now. Please try again later.',
+        };
+
+        throw new Error(data.message || messageByStatus[res.status] || 'Unable to send your message. Please try again.');
+      }
+
+      setFormStatus({ type: 'success', message: 'Message sent successfully!' });
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setPhoneNumber('');
+      setMessage('');
+    } catch (error) {
+      const isNetworkError = error instanceof TypeError;
+      setFormStatus({
+        type: 'error',
+        message: isNetworkError
+          ? 'Unable to reach the server. Please check your connection and try again.'
+          : error.message,
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    alert("Something went wrong");
-  }
-
-  // reset
-  setFirstName("");
-  setLastName("");
-  setEmail("");
-  setPhoneNumber("");
-  setMessage("");
-};
+  };
 
   // Theme-based constants
   const cardBg = darkMode 
@@ -105,6 +126,15 @@ const Contact = ({ darkMode }) => {
             className="flex flex-col gap-5 p-8 md:p-10 rounded-[2.5rem] border shadow-2xl order-1 lg:order-2"
             data-aos="fade-left"
           >
+            {formStatus.message && (
+              <p
+                role="status"
+                aria-live="polite"
+                className={`rounded-xl px-4 py-3 text-sm font-medium ${formStatus.type === 'success' ? 'bg-green-500/15 text-green-500' : 'bg-red-500/15 text-red-400'}`}
+              >
+                {formStatus.message}
+              </p>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
                 <label className="text-xs font-bold uppercase tracking-widest opacity-60 ml-1" style={{ color: subTextColor }}>First Name</label>
@@ -173,10 +203,11 @@ const Contact = ({ darkMode }) => {
 
             <button
               type="submit"
+              disabled={isSubmitting}
               style={{ background: "linear-gradient(to right, #f97316, #f59e0b)" }}
-              className="w-full py-5 mt-4 text-white font-bold rounded-2xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-95 transition-all duration-300 uppercase tracking-widest text-sm"
+              className="w-full py-5 mt-4 text-white font-bold rounded-2xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:scale-[1.02] active:scale-95 transition-all duration-300 uppercase tracking-widest text-sm disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100"
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>
