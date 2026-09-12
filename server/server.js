@@ -9,7 +9,7 @@ dotenv.config();
 
 //middlewares
 app.use(cors({
-    origin: "https://portfolio-frontend-six-psi.vercel.app/"
+    origin: "https://portfolio-frontend-six-psi.vercel.app"
 }));
 app.use(express.json());
 
