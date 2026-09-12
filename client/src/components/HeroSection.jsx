@@ -1,6 +1,6 @@
 import { Download, Mail } from 'lucide-react';
 import instagram from '../assets/instagram.png';
-import linkedin1 from '../assets/linkedin1.png';
+import Linkedin1 from '../assets/Linkedin1.png';
 import github from '../assets/github.png';
 import hero1 from '../assets/hero1.png';
 import hi from '../assets/hi.png';
@@ -10,7 +10,7 @@ const HeroSection = ({ darkMode }) => {
     const socialIcons = [
         { icon: instagram, alt: 'Instagram', link: 'https://www.instagram.com/musafmeer7'},
         { icon: github, alt: 'github', link: 'https://github.com/Musafmeer700',},
-        { icon: linkedin1, alt: 'linkedin', link: 'https://www.linkedin.com/in/musafmeer70'},
+        { icon: Linkedin1, alt: 'linkedin', link: 'https://www.linkedin.com/in/musafmeer70'},
     ];
 
     const theme = {
