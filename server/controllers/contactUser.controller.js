@@ -15,7 +15,8 @@ export const contactUser = async (req, res) =>  {
         });
 
         await transporter.sendMail({
-            from: emailAddress,
+            from: process.env.EMAIL,
+            replyTo: emailAddress,
             to: process.env.EMAIL,
             subject: "New Portfolio Message ",
             html: 

@@ -6,6 +6,7 @@ import dotenv  from 'dotenv'
 const app = express();
 
 dotenv.config();
+app.set("trust proxy", 1);
 
 //middlewares
 app.use(cors({

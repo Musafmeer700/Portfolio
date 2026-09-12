@@ -29,7 +29,7 @@ const Contact = ({ darkMode }) => {
       body: JSON.stringify(formdata),
     });
 
-    const data = await res.json(); // 👈 missing await
+    const data = await res.json();
 
     if (data.success) {
       alert("Message sent successfully!");
