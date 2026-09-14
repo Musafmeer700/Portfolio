@@ -110,7 +110,7 @@ const About = ({ darkMode }) => {
                                         : "bg-gray-100 border-gray-200 hover:bg-gray-200"
                                 } transition-colors duration-300 cursor-pointer`}
                             >
-                                <div className="text-xl sm:text-2xl font-bold text-orange-500 mb-1">
+                                <div className="text-[16px] sm:text-2xl font-bold text-orange-500 mb-1">
                                     {stat.value}
                                 </div>
                                 <div
